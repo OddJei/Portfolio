@@ -82,3 +82,11 @@ python serve.py 8002
 ```
 
 Then open `http://127.0.0.1:8002/work/tradeflow` or any of the other published case-study routes.
+
+## Contact card and master résumé — 2026-09-27
+
+- Replaced the compact contact action with an accessible business-card-style modal showing James Chisulo and the Software Engineer · Product Builder title.
+- Wired email, WhatsApp with a prefilled introduction, LinkedIn, GitHub, Facebook, and the master résumé links.
+- Copied the vault-approved `James_Chisulo_Master_CV.pdf` into `assets/` without modifying the source PDF.
+- Added keyboard focus trapping, Escape/backdrop close, focus restoration, responsive one-column mobile layout, and visible focus states.
+- Verified the two-page A4 PDF and local HTTP delivery of the homepage, case-study routes, JavaScript, CSS, and résumé asset.

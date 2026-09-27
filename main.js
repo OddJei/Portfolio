@@ -124,7 +124,7 @@ function nav() {
         <a href="/#work">WORK</a>
         <a href="/#about">ABOUT</a>
         <a href="/#nds">NDS</a>
-        <a href="/#contact">CONTACT</a>
+        <a href="/#contact" data-open-contact>CONTACT</a>
       </nav>
     </header>
   `;
@@ -141,6 +141,10 @@ function button(href, text, secondary = false, external = false) {
 
 function placeholderButton(text, topic, secondary = true) {
   return `<button class="btn${secondary ? ' secondary' : ''} evidence-trigger" type="button" data-evidence-topic="${topic}">${text}</button>`;
+}
+
+function contactTrigger(text = 'Contact James', secondary = false) {
+  return `<button class="btn${secondary ? ' secondary' : ''} contact-trigger" type="button" data-open-contact>${text}</button>`;
 }
 
 function dot(gold = false) {
@@ -189,6 +193,30 @@ function evidenceModal() {
   `;
 }
 
+function contactModal() {
+  const whatsappMessage = encodeURIComponent('Hi James, I found your portfolio and would like to connect.');
+  return `
+    <div class="contact-modal" id="contact-modal" aria-hidden="true">
+      <div class="contact-modal-backdrop" data-close-contact></div>
+      <section class="contact-card" role="dialog" aria-modal="true" aria-labelledby="contact-card-title" aria-describedby="contact-card-copy">
+        <button class="evidence-modal-close" type="button" aria-label="Close contact card" data-close-contact>×</button>
+        <div class="chip">CONTACT CARD</div>
+        <p class="contact-card-kicker">JAMES CHISULO</p>
+        <h3 id="contact-card-title">Software Engineer · Product Builder</h3>
+        <p id="contact-card-copy" class="contact-card-copy">Engineering, product work, collaboration and opportunities.</p>
+        <div class="contact-links">
+          <a href="mailto:jchisulokt@gmail.com" class="contact-link"><span class="contact-link-icon" aria-hidden="true">@</span><span><strong>Email</strong><small>jchisulokt@gmail.com</small></span><span aria-hidden="true">↗</span></a>
+          <a href="https://wa.me/260961086845?text=${whatsappMessage}" class="contact-link" target="_blank" rel="noopener noreferrer"><span class="contact-link-icon" aria-hidden="true">WA</span><span><strong>WhatsApp</strong><small>+260 961 086845</small></span><span aria-hidden="true">↗</span></a>
+          <a href="https://www.linkedin.com/in/james-chisulo-kt-7b1831239/" class="contact-link" target="_blank" rel="noopener noreferrer"><span class="contact-link-icon" aria-hidden="true">in</span><span><strong>LinkedIn</strong><small>James Chisulo</small></span><span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/OddJei" class="contact-link" target="_blank" rel="noopener noreferrer"><span class="contact-link-icon" aria-hidden="true">&lt;/&gt;</span><span><strong>GitHub</strong><small>github.com/OddJei</small></span><span aria-hidden="true">↗</span></a>
+          <a href="https://www.facebook.com/profile.php?id=100007241835936" class="contact-link" target="_blank" rel="noopener noreferrer"><span class="contact-link-icon" aria-hidden="true">f</span><span><strong>Facebook</strong><small>James Chisulo</small></span><span aria-hidden="true">↗</span></a>
+          <a href="/assets/James_Chisulo_Master_CV.pdf" class="contact-link contact-link-resume" target="_blank" rel="noopener noreferrer"><span class="contact-link-icon" aria-hidden="true">CV</span><span><strong>Master résumé</strong><small>Open James_Chisulo_Master_CV.pdf</small></span><span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    </div>
+  `;
+}
+
 function bindEvidenceActions() {
   const modal = document.getElementById('evidence-modal');
   if (!modal) return;
@@ -218,6 +246,52 @@ function bindEvidenceActions() {
     trigger.addEventListener('click', () => openModal(trigger.dataset.evidenceTopic || 'Evidence'));
   });
   modal.querySelectorAll('[data-close-evidence]').forEach(el => el.addEventListener('click', closeModal));
+  document.addEventListener('keydown', event => {
+    if (!modal.classList.contains('open')) return;
+    if (event.key === 'Escape') {
+      closeModal();
+      return;
+    }
+    if (event.key === 'Tab') {
+      const focusable = [...modal.querySelectorAll(focusableSelector)];
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  });
+}
+
+function bindContactActions() {
+  const modal = document.getElementById('contact-modal');
+  if (!modal) return;
+  let returnFocus = null;
+  const focusableSelector = 'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])';
+  const openModal = () => {
+    returnFocus = document.activeElement;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    modal.querySelector('.evidence-modal-close')?.focus();
+  };
+  const closeModal = () => {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    if (returnFocus instanceof HTMLElement && document.contains(returnFocus)) returnFocus.focus();
+    returnFocus = null;
+  };
+  document.querySelectorAll('[data-open-contact]').forEach(trigger => trigger.addEventListener('click', event => {
+    if (trigger.tagName === 'A') event.preventDefault();
+    openModal();
+  }));
+  modal.querySelectorAll('[data-close-contact]').forEach(el => el.addEventListener('click', closeModal));
   document.addEventListener('keydown', event => {
     if (!modal.classList.contains('open')) return;
     if (event.key === 'Escape') {
@@ -405,7 +479,7 @@ function homePage() {
               <p class="lead">Business software, backend architecture and product systems shaped by real deployments, real users and production constraints.</p>
               <div class="actions">
                 ${button('#work', 'View selected work')}
-                ${button('#contact', 'Contact / résumé', true)}
+                ${contactTrigger('Contact / résumé', true)}
               </div>
               <div class="proof">
                 <span>${dot()}Real client deployments</span>
@@ -473,16 +547,18 @@ function homePage() {
 
           <section id="contact" class="section contact">
             ${sectionLabel('04', 'CONTACT')}
-            <h2>Interested in the engineering or product work?</h2>
+            <h2>Let’s connect.</h2>
+            <p class="section-intro">Interested in the engineering, product work, collaboration or opportunities?</p>
             <div class="actions">
-              ${button('mailto:jchisulokt@gmail.com', 'Contact')}
-              ${placeholderButton('Résumé', 'Résumé download')}
+              ${contactTrigger('Contact James')}
+              ${button('/assets/James_Chisulo_Master_CV.pdf', 'Résumé', true, true)}
               ${button('https://github.com/OddJei', 'GitHub', true, true)}
             </div>
           </section>
         </main>
       </div>
       ${evidenceModal()}
+      ${contactModal()}
     </div>
   `;
 }
@@ -525,10 +601,11 @@ function caseStudyPage(slug) {
             </section>
           `).join('')}
           ${evidenceSection(data)}
-          <div class="case-nav">${button('/', '← Portfolio home', true)}${button(`/work/${next.slug}`, `Next: ${next.title} →`)}</div>
+          <div class="case-nav">${contactTrigger('Contact James')}${button('/assets/James_Chisulo_Master_CV.pdf', 'View résumé', true, true)}${button('/', '← Portfolio home', true)}${button(`/work/${next.slug}`, `Next: ${next.title} →`)}</div>
         </main>
       </div>
       ${evidenceModal()}
+      ${contactModal()}
     </div>
   `;
 }
@@ -562,3 +639,4 @@ if (path.startsWith('/work/')) {
 
 bindNavigation();
 bindEvidenceActions();
+bindContactActions();

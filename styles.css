@@ -158,6 +158,25 @@ button.btn { font-family: inherit; cursor: pointer; }
 .evidence-modal-close { position: absolute; top: 18px; right: 18px; display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 1px solid var(--border); border-radius: 50%; background: var(--soft); color: var(--text); font: inherit; font-size: 23px; cursor: pointer; }
 .modal-open { overflow: hidden; }
 
+/* Contact card */
+.contact-modal { position: fixed; inset: 0; z-index: 110; display: none; place-items: center; padding: 22px; }
+.contact-modal.open { display: grid; }
+.contact-modal-backdrop { position: absolute; inset: 0; background: rgba(3,6,5,.82); backdrop-filter: blur(8px); }
+.contact-card { position: relative; width: min(680px,100%); max-height: min(760px,calc(100vh - 44px)); overflow: auto; padding: 34px; border: 1px solid #33453a; border-radius: 24px; background: var(--panel2); box-shadow: 0 28px 90px rgba(0,0,0,.5); }
+.contact-card-kicker { margin: 28px 0 8px; color: var(--green); font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+.contact-card h3 { margin: 0; max-width: 500px; font-size: 34px; line-height: 1.15; letter-spacing: -.03em; }
+.contact-card-copy { margin: 14px 0 26px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+.contact-links { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.contact-link { display: grid; grid-template-columns: 38px minmax(0,1fr) 18px; align-items: center; gap: 12px; min-height: 68px; padding: 12px; border: 1px solid var(--border); border-radius: 14px; background: var(--panel); color: var(--text); text-decoration: none; transition: transform .2s ease,border-color .2s ease,background .2s ease; }
+.contact-link:hover { transform: translateY(-2px); border-color: #3b5144; background: var(--soft); }
+.contact-link-icon { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid rgba(119,232,162,.35); border-radius: 10px; color: var(--green); font-size: 11px; font-weight: 700; }
+.contact-link strong,.contact-link small { display: block; overflow-wrap: anywhere; }
+.contact-link strong { font-size: 13px; }
+.contact-link small { margin-top: 4px; color: var(--muted); font-size: 11px; line-height: 1.35; }
+.contact-link > span:last-child { color: var(--muted); font-size: 16px; }
+.contact-link-resume { border-color: rgba(212,182,109,.42); }
+.contact-link-resume .contact-link-icon { border-color: rgba(212,182,109,.5); color: var(--gold); }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
@@ -165,3 +184,4 @@ button.btn { font-family: inherit; cursor: pointer; }
 
 @media(max-width:900px){.case-evidence-head{grid-template-columns:1fr;gap:22px}.case-evidence-head h2{font-size:38px}.evidence-state{justify-self:start}.evidence-grid{grid-template-columns:1fr}}
 @media(max-width:520px){.case-evidence{padding:54px 0 64px}.case-evidence-head h2{font-size:34px}.evidence-card{min-height:0;padding:20px}.evidence-card-top{gap:12px}.evidence-modal-panel{padding:26px 22px}.evidence-modal-panel h3{font-size:25px}.evidence-modal-close{top:14px;right:14px}}
+@media(max-width:520px){.contact-modal{padding:12px}.contact-card{max-height:calc(100vh - 24px);padding:26px 18px}.contact-card h3{font-size:28px}.contact-links{grid-template-columns:1fr;gap:10px}.contact-link{min-height:64px}}
