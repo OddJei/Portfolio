@@ -90,3 +90,12 @@ Then open `http://127.0.0.1:8002/work/tradeflow` or any of the other published c
 - Copied the vault-approved `James_Chisulo_Master_CV.pdf` into `assets/` without modifying the source PDF.
 - Added keyboard focus trapping, Escape/backdrop close, focus restoration, responsive one-column mobile layout, and visible focus states.
 - Verified the two-page A4 PDF and local HTTP delivery of the homepage, case-study routes, JavaScript, CSS, and résumé asset.
+
+## Report-style portfolio language — 2026-09-27
+
+- Rewrote the homepage support copy, project cards, engineering snapshot, About section, NTheemba Digital Services context, and Contact section in a professional engineering case-study voice.
+- Reworked the TradeFlow, NTheemba, and NCPC case-study narratives around the problem, constraints, engineering decision, implementation, production findings, current status, and remaining work.
+- Replaced instruction-like and AI-commentary phrasing such as “The useful part is what broke” and “A chatbot is easy” with concise report-style findings.
+- Refined evidence headings, status labels, modal copy, and action labels so the portfolio distinguishes available technical evidence from private, in-progress, and forthcoming material.
+- Preserved the existing layout, project order, diagrams, technical facts, public evidence links, route fallback, contact card, and master résumé behavior.
+- Verified `node --check main.js`, `git diff --check`, and HTTP 200 delivery for the homepage, all published case-study routes, trailing-slash routes, the not-found route, assets, JavaScript, CSS, and résumé PDF.

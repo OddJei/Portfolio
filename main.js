@@ -4,7 +4,7 @@ const projects = [
     n: '01',
     label: 'BUSINESS OPERATIONS',
     title: 'TradeFlow',
-    copy: 'Visibility for small businesses without forcing every business into a supermarket-style POS workflow.',
+    copy: 'Business operations software shaped by live SME deployments, including businesses that need operational visibility without a conventional POS workflow.',
     evidence: 'Production deployments · workflow adaptations · Android compatibility · production fixes',
     accent: 'green',
   },
@@ -13,7 +13,7 @@ const projects = [
     n: '02',
     label: 'CONVERSATIONAL INFRASTRUCTURE',
     title: 'NTheemba',
-    copy: 'Routing natural-language requests to the right business capability while authoritative systems stay in control.',
+    copy: 'Conversational infrastructure for routing business requests to the correct capability while authoritative systems retain ownership of operational data.',
     evidence: 'FastAPI · PostgreSQL registry · Redis runtime · ports/adapters · tested workflows',
     accent: 'green',
   },
@@ -22,7 +22,7 @@ const projects = [
     n: '03',
     label: 'CATALOGUE INFRASTRUCTURE',
     title: 'NCPC',
-    copy: 'Turning messy barcodes, aliases, spellings and variants into stable canonical product identity.',
+    copy: 'A shared product-identity layer for resolving inconsistent names, barcodes, variants and aliases into stable canonical references.',
     evidence: 'Canonical identity · barcode mappings · aliases · catalogue tooling',
     accent: 'gold',
   },
@@ -37,19 +37,19 @@ const caseContent = {
     status: 'Deployed · public details limited',
     role: 'Product + engineering + onboarding',
     stack: 'JavaScript · Apps Script · Sheets · APIs',
-    evidenceStatus: 'Evidence publishing in progress',
+    evidenceStatus: 'AVAILABLE · PRIVATE MATERIAL PENDING',
     evidenceItems: [
       ['Technical evidence', 'AVAILABLE', 'The public Standard TradeFlow copy includes the setup gate, API contracts and focused tests.', 'https://github.com/OddJei/TradeFlow-Standard-App/blob/3138b2af7b01359af0aaa5ce0ae856a8608597d7/appscript/tests/first-time-setup-preflight.test.mjs'],
       ['Architecture', 'AVAILABLE', 'The public source shows the Apps Script, business-data and NCPC mapping boundaries.', 'https://github.com/OddJei/TradeFlow-Standard-App/blob/3138b2af7b01359af0aaa5ce0ae856a8608597d7/appscript/code.gs'],
-      ['Client reviews', 'PENDING', 'Owner and staff reviews are being collected and will be added after review and permission.'],
-      ['Real-world photos', 'PENDING', 'Permissioned shop and usage photos will be added as they are collected.'],
-      ['Source / GitHub', 'PUBLISHED', 'Public-safe Standard TradeFlow source and evidence copy at an immutable commit.', 'https://github.com/OddJei/TradeFlow-Standard-App/commit/3138b2af7b01359af0aaa5ce0ae856a8608597d7'],
+      ['Client reviews', 'PRIVATE', 'Owner and staff reviews are being collected and will be added after review and permission.'],
+      ['Real-world photos', 'COMING SHORTLY', 'Permissioned shop and usage photos will be added as they are prepared for public viewing.'],
+      ['Source / GitHub', 'AVAILABLE', 'Selected implementation and architecture evidence is available in the public Standard TradeFlow repository.', 'https://github.com/OddJei/TradeFlow-Standard-App/commit/3138b2af7b01359af0aaa5ce0ae856a8608597d7'],
     ],
     sections: [
-      ['01', 'CONTEXT', 'The first assumption was simple. Reality was not.', 'Real client use exposed a harder question: what happens when the business does not operate like a supermarket checkout?'],
-      ['02', 'ENGINEERING PROBLEM', 'Model the business without forcing the wrong workflow.', 'POS is a capability, not the definition. Some deployments need per-sale capture; others need revenue, expense, stock and restock visibility without changing staff behaviour.'],
-      ['03', 'PRODUCTION REALITY', 'The useful part is what broke.', 'Production work forced fixes around older Android sign-in, inspection persistence, shop isolation and multi-device behaviour.'],
-      ['04', 'REFLECTION', 'What I would do differently now.', 'Centralize durable data earlier, treat onboarding as part of product, test workflows rather than only functions, and avoid confusing feature breadth with differentiation.'],
+      ['01', 'CONTEXT', 'Operational visibility did not require one universal workflow.', 'Early versions assumed that detailed transaction capture would be central to business visibility. Client use showed that some businesses required stock, revenue and expense visibility without changing existing sales routines.'],
+      ['02', 'ENGINEERING PROBLEM', 'Different business models required different workflows.', 'POS was therefore treated as one capability within the system rather than the definition of TradeFlow. The architecture had to support multiple operating models while preserving consistent data handling, configuration and reporting.'],
+      ['03', 'PRODUCTION REALITY', 'Production use exposed assumptions that prototype testing did not.', 'Older Android devices exposed compatibility assumptions, while restocking and physical-count workflows revealed persistence, state-management and synchronization edge cases. These findings influenced implementation changes and testing priorities, including multi-device behavior.'],
+      ['04', 'REFLECTION', 'Engineering lessons.', 'Subsequent work placed greater emphasis on workflow-level testing, configuration standardization and onboarding as part of the product rather than as a separate operational activity.'],
     ],
   },
   ntheemba: {
@@ -60,21 +60,21 @@ const caseContent = {
     status: 'Under development · core runtime built',
     role: 'Backend architecture + implementation',
     stack: 'Python 3.12 · FastAPI · PostgreSQL · Redis',
-    evidenceStatus: 'Evidence publishing in progress',
+    evidenceStatus: 'AVAILABLE · LIVE GATEWAY UNDER DEVELOPMENT',
     evidenceItems: [
       ['Technical evidence', 'AVAILABLE', 'The public copy contains the FastAPI runtime, inbound worker and focused test suite.', 'https://github.com/OddJei/NTheemba/tree/91f1a1de968f217abd719176139cbd6dead98100/bot/tests'],
-      ['Architecture', 'AVAILABLE', 'The immutable source commit exposes the runtime entry point, worker and adapter boundaries.', 'https://github.com/OddJei/NTheemba/blob/91f1a1de968f217abd719176139cbd6dead98100/bot/ntheemba/main.py'],
+      ['Architecture', 'AVAILABLE', 'The public source commit exposes the runtime entry point, worker and adapter boundaries.', 'https://github.com/OddJei/NTheemba/blob/91f1a1de968f217abd719176139cbd6dead98100/bot/ntheemba/main.py'],
       ['Runtime / session evidence', 'AVAILABLE', 'The repository documents durable configuration, runtime coordination and capability workflows; this is local/source evidence, not live WhatsApp proof.', 'https://github.com/OddJei/NTheemba/blob/91f1a1de968f217abd719176139cbd6dead98100/bot/ntheemba/inbound_worker.py'],
       ['Gateway / WAHA integration', 'UNDER DEVELOPMENT', 'Gateway materials remain integration work; live WhatsApp activation is not claimed.'],
-      ['Source / GitHub', 'PUBLISHED', 'Public-safe Ntheemba source and evidence copy at an immutable commit.', 'https://github.com/OddJei/NTheemba/commit/91f1a1de968f217abd719176139cbd6dead98100'],
+      ['Source / GitHub', 'AVAILABLE', 'Selected implementation and architecture evidence is available in the public NTheemba repository.', 'https://github.com/OddJei/NTheemba/commit/91f1a1de968f217abd719176139cbd6dead98100'],
     ],
     sections: [
-      ['01', 'PROBLEM', 'A chatbot is easy. A trustworthy business agent is not.', 'The hard part is identifying the business, loading the right capability, handling duplicates and failures, and never inventing business facts.'],
-      ['02', 'ARCHITECTURE', 'Conversation is orchestration.', 'WhatsApp gateway → NTheemba → capability → authoritative system, with PostgreSQL for durable configuration and Redis for runtime/session state.'],
-      ['03', 'KEY DECISIONS', 'State boundaries matter.', 'Capabilities are owned by NTheemba, adapters isolate external systems, Redis is not tenant truth, and LLM output is not authority.'],
-      ['04', 'WHAT IS ACTUALLY BUILT', 'Architecture with tests — without pretending integration is finished.', 'Core workflows and PostgreSQL/Redis foundations are built; the live end-to-end gateway remains the integration edge.'],
-      ['05', 'CRITICAL PATH', 'Current integration spine.', 'Inbound message → worker process → NCPC resolve → TradeFlow truth → outbound reply.'],
-      ['06', 'REFLECTION', 'Reliability is product work.', 'Duplicate messages, retries, timeouts and restarts must be treated as normal operating conditions.'],
+      ['01', 'PROBLEM', 'The engineering challenge extends beyond generating conversational responses.', 'A business assistant must identify the correct business, understand available capabilities, manage session state, tolerate retries and duplicate messages, and obtain business facts from authoritative systems.'],
+      ['02', 'ARCHITECTURE', 'Conversation is treated as orchestration rather than authority.', 'NTheemba interprets requests and routes them to the appropriate capability, while systems such as TradeFlow and NCPC retain ownership of the data they are responsible for.'],
+      ['03', 'KEY DECISIONS', 'Durable configuration and runtime state are separated.', 'PostgreSQL stores tenant and capability configuration that must persist across restarts. Redis is used for short-lived session, cache and coordination state; it is not the source of tenant truth.'],
+      ['04', 'CURRENT IMPLEMENTATION STATUS', 'Core foundations are implemented while the messaging edge remains under development.', 'Core workflow, registry, PostgreSQL and Redis foundations are implemented. Live WAHA gateway integration and the final end-to-end messaging path remain under active development.'],
+      ['05', 'CRITICAL PATH', 'The current flow routes each request to the system responsible for that data or action.', 'Inbound message → worker process → NCPC resolve → TradeFlow truth → outbound reply.'],
+      ['06', 'REFLECTION', 'Reliability requirements are part of the product.', 'Duplicate messages, retries, timeouts and restarts are treated as normal operating conditions that the implementation must handle explicitly.'],
     ],
   },
   ncpc: {
@@ -85,20 +85,20 @@ const caseContent = {
     status: 'Under development · catalogue tooling works',
     role: 'Data model + APIs + contracts',
     stack: 'JavaScript · catalogue JSON · API contracts',
-    evidenceStatus: 'Evidence publishing in progress',
+    evidenceStatus: 'AVAILABLE · UI EVIDENCE IN PROGRESS',
     evidenceItems: [
       ['Technical evidence', 'AVAILABLE', 'The public copy contains the identity model, API contracts and workflow tests.', 'https://github.com/OddJei/NTheemba-Central-Product-Catalogue-NCPC-/blob/dae04f65295dccc7ec89a094a9ba7e249cde7fc2/service/src/ncpc_service/models.py'],
-      ['Architecture', 'AVAILABLE', 'The immutable source shows identity, variant, alias, barcode and review/publication boundaries.', 'https://github.com/OddJei/NTheemba-Central-Product-Catalogue-NCPC-/blob/dae04f65295dccc7ec89a094a9ba7e249cde7fc2/service/src/ncpc_service/api.py'],
+      ['Architecture', 'AVAILABLE', 'The public source shows identity, variant, alias, barcode and review/publication boundaries.', 'https://github.com/OddJei/NTheemba-Central-Product-Catalogue-NCPC-/blob/dae04f65295dccc7ec89a094a9ba7e249cde7fc2/service/src/ncpc_service/api.py'],
       ['Review / workflow tests', 'AVAILABLE', 'The workflow tests provide source-level evidence for controlled catalogue operations.', 'https://github.com/OddJei/NTheemba-Central-Product-Catalogue-NCPC-/blob/dae04f65295dccc7ec89a094a9ba7e249cde7fc2/service/tests/test_workflow.py'],
-      ['Catalogue / admin UI', 'PREPARING', 'Public-safe screenshots and catalogue workflow evidence will be added shortly.'],
-      ['Source / GitHub', 'PUBLISHED', 'Public-safe NCPC source and evidence copy at an immutable commit.', 'https://github.com/OddJei/NTheemba-Central-Product-Catalogue-NCPC-/commit/dae04f65295dccc7ec89a094a9ba7e249cde7fc2'],
+      ['Catalogue / admin UI', 'IN PROGRESS', 'Catalogue UI screenshots and additional workflow evidence will be added as they are prepared for public viewing.'],
+      ['Source / GitHub', 'AVAILABLE', 'Selected implementation and architecture evidence is available in the public NCPC repository.', 'https://github.com/OddJei/NTheemba-Central-Product-Catalogue-NCPC-/commit/dae04f65295dccc7ec89a094a9ba7e249cde7fc2'],
     ],
     sections: [
-      ['01', 'PROBLEM', 'Products have one identity. People describe them many ways.', 'A customer, cashier, barcode and supplier list may all refer to the same product differently. Re-discovering identity for every business is expensive and inconsistent.'],
-      ['02', 'AUTHORITY BOUNDARY', 'Identity is not inventory.', 'NCPC owns canonical identity. TradeFlow owns business-specific truth such as selling price, stock and availability.'],
-      ['03', 'RESOLUTION MODEL', 'Normalize messy input into a stable product reference.', 'Barcode, exact variant, alias and fuzzy phrase all feed candidate search before returning a stable product/variant identity.'],
-      ['04', 'WHY IT MATTERS', 'Every onboarding can compound.', 'The hypothesis is that a growing shared identity layer reduces repeated catalogue-cleaning work. It is a hypothesis to validate, not a moat to claim prematurely.'],
-      ['05', 'REFLECTION', 'Keep the scope narrow.', 'Price and stock would blur ownership and introduce staleness. Data quality itself is product work.'],
+      ['01', 'PROBLEM', 'Products have one identity. People describe them many ways.', 'Product onboarding repeatedly exposed inconsistent descriptions of the same item across cashier input, supplier lists, barcodes, aliases and misspellings. Repeating this identity work for every business created unnecessary catalogue-cleaning effort.'],
+      ['02', 'AUTHORITY BOUNDARY', 'Product identity was separated from inventory.', 'NCPC was scoped to own canonical product identity, variants, barcodes and aliases. Business-specific facts such as stock, selling price and availability remain in TradeFlow.'],
+      ['03', 'RESOLUTION MODEL', 'Different descriptions resolve toward a stable product reference.', 'Barcode matches, exact variants, known aliases and imperfect descriptions feed into candidate resolution before a stable product and variant identity is returned.'],
+      ['04', 'WHY IT MATTERS', 'Catalogue work can become reusable.', 'Once a product mapping has been identified and reviewed, that work can potentially be reused during future onboarding instead of repeating catalogue cleanup for every business. This remains a hypothesis to validate as the catalogue and deployment base grow.'],
+      ['05', 'REFLECTION', 'Keeping the scope narrow improved ownership.', 'Adding stock or price to NCPC would duplicate business-specific truth and increase the risk of stale data. Keeping the service focused on identity preserves clearer boundaries between systems.'],
     ],
   },
 };
@@ -157,8 +157,8 @@ function evidenceSection(data) {
       ${sectionLabel('E', 'EVIDENCE')}
       <div class="case-evidence-head">
         <div>
-        <h2>Evidence, with boundaries.</h2>
-          <p>Public source and test evidence are linked directly where available. Deployment, client, payment and live-channel proof remains private or pending approval rather than being implied by source code.</p>
+        <h2>Technical evidence, with context.</h2>
+          <p>Technical and implementation evidence is published where appropriate. Client reviews, real-world photos and additional deployment evidence will be added as they are prepared for public viewing.</p>
         </div>
         <span class="evidence-state">${data.evidenceStatus}</span>
       </div>
@@ -170,7 +170,7 @@ function evidenceSection(data) {
               <span class="evidence-badge ${status === 'PRIVATE' ? 'private' : status === 'PENDING' ? 'pending' : ''}">${status}</span>
             </div>
             <p>${copy}</p>
-            ${href ? button(href, status === 'PUBLISHED' ? 'View immutable source' : 'View public evidence', true, true) : placeholderButton('View evidence', `${data.title} — ${title}`)}
+            ${href ? button(href, title === 'Architecture' ? 'View architecture' : title.includes('Test') ? 'View tests' : title.includes('Source') ? 'View source evidence' : 'View technical evidence', true, true) : placeholderButton('View evidence', `${data.title} — ${title}`)}
           </article>
         `).join('')}
       </div>
@@ -184,9 +184,9 @@ function evidenceModal() {
       <div class="evidence-modal-backdrop" data-close-evidence></div>
         <section class="evidence-modal-panel" role="dialog" aria-modal="true" aria-labelledby="evidence-modal-title" aria-describedby="evidence-modal-copy">
         <button class="evidence-modal-close" type="button" aria-label="Close" data-close-evidence>×</button>
-        <div class="eyebrow">EVIDENCE UPDATE</div>
-        <h3 id="evidence-modal-title">Will be updated shortly.</h3>
-        <p id="evidence-modal-copy">This evidence is not yet published. The portfolio is being updated continuously as material is reviewed and cleared for public use.</p>
+        <div class="eyebrow">EVIDENCE</div>
+        <h3 id="evidence-modal-title">Additional evidence is in progress.</h3>
+        <p id="evidence-modal-copy">This material will be added as it is reviewed and prepared for public viewing. The portfolio does not imply client, deployment, payment or live-channel proof where it is not available.</p>
         <button class="btn" type="button" data-close-evidence>Close</button>
       </section>
     </div>
@@ -228,7 +228,7 @@ function bindEvidenceActions() {
   const openModal = topic => {
     returnFocus = document.activeElement;
     title.textContent = `${topic} — will be updated shortly.`;
-    copy.textContent = 'This item is not yet published. The portfolio is being updated continuously as reviews, photos and public-safe technical evidence are prepared and approved.';
+    copy.textContent = 'This material is not yet available for public viewing. It will be added as reviews, photos and additional evidence are prepared and approved.';
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
@@ -432,7 +432,7 @@ function diagram(type) {
 
   return `
     <div class="diagram">
-      <div class="diagram-title gold-text">MESSY INPUT → CANONICAL IDENTITY</div>
+      <div class="diagram-title gold-text">INCONSISTENT INPUT → CANONICAL IDENTITY</div>
       <div class="alias-grid">
         <div>
           <span>coke 500</span>
@@ -476,7 +476,7 @@ function homePage() {
               <div class="chip">SOFTWARE ENGINEER · PRODUCT BUILDER</div>
               <h1>I build systems that have to work in the real world.</h1>
               <p class="stack">Python · FastAPI · PostgreSQL · Redis · JavaScript · APIs</p>
-              <p class="lead">Business software, backend architecture and product systems shaped by real deployments, real users and production constraints.</p>
+              <p class="lead">Business software, backend systems and product infrastructure shaped by real deployments, user feedback and production constraints.</p>
               <div class="actions">
                 ${button('#work', 'View selected work')}
                 ${contactTrigger('Contact / résumé', true)}
@@ -510,10 +510,10 @@ function homePage() {
             <h2>The interesting part is why.</h2>
             <p class="section-intro">A stack is only useful when it explains a trade-off.</p>
             <div class="decision-grid">
-              <article><span>01</span><div><h4>PostgreSQL stores durable truth</h4><p>Tenant registration, capability configuration and persistent state belong in a durable relational store.</p></div></article>
-              <article><span>02</span><div><h4>Redis handles runtime state</h4><p>Sessions, cache, dedupe and short-lived coordination stay separate from durable business configuration.</p></div></article>
-              <article><span>03</span><div><h4>Authority stays with the owning system</h4><p>NCPC identifies products; TradeFlow owns price and availability; NTheemba orchestrates.</p></div></article>
-              <article><span>04</span><div><h4>Production feedback changes architecture</h4><p>Compatibility, persistence and workflow failures from real deployments are documented instead of hidden.</p></div></article>
+              <article><span>01</span><div><h4>PostgreSQL holds durable configuration</h4><p>Tenant registration, capability configuration and persistent state belong in a durable relational store.</p></div></article>
+              <article><span>02</span><div><h4>Redis is used for short-lived runtime state</h4><p>Sessions, cache, dedupe and coordination stay separate from durable business configuration.</p></div></article>
+              <article><span>03</span><div><h4>Operational truth remains with the owning system</h4><p>NCPC identifies products; TradeFlow owns price and availability; NTheemba orchestrates.</p></div></article>
+              <article><span>04</span><div><h4>Production findings influence architectural decisions</h4><p>Compatibility, persistence and workflow findings from real deployments inform implementation and testing priorities.</p></div></article>
             </div>
             <div class="tech-strip">Python 3.12 · FastAPI · PostgreSQL · Redis · JavaScript · Apps Script · REST contracts · pytest</div>
           </section>
@@ -523,7 +523,7 @@ function homePage() {
             <div class="about-grid">
               <div>
                 <h2>A non-linear path into software.</h2>
-                <p class="lead">I learned by building, breaking assumptions, working with real businesses and supporting what I shipped. The useful story is the progression from experiments to systems with real users and consequences.</p>
+                <p class="lead">I learned through building, supporting real users and revisiting assumptions when production behavior differed from the prototype. That progression shaped how I approach architecture, testing and product decisions today.</p>
               </div>
               <div class="timeline">
                 <div><span class="dot"></span><span><strong>Started self-teaching</strong><small>experiments</small></span></div>
@@ -539,7 +539,7 @@ function homePage() {
               <div>
                 <div class="chip gold-chip">ALSO BUILDING</div>
                 <h3>NTheemba Digital Services</h3>
-                <p>A small product and implementation company focused on practical digital systems for MSMEs — shown here as evidence of product ownership and client responsibility, not as a second sales website.</p>
+                <p>NTheemba Digital Services provides the operating context for much of this work, including product implementation, client onboarding, production support and ongoing system improvement.</p>
               </div>
               <strong>TRADEFLOW · NTHEEMBA · NCPC</strong>
             </div>
@@ -548,7 +548,7 @@ function homePage() {
           <section id="contact" class="section contact">
             ${sectionLabel('04', 'CONTACT')}
             <h2>Let’s connect.</h2>
-            <p class="section-intro">Interested in the engineering, product work, collaboration or opportunities?</p>
+            <p class="section-intro">Interested in the engineering, product work, collaboration or an opportunity?</p>
             <div class="actions">
               ${contactTrigger('Contact James')}
               ${button('/assets/James_Chisulo_Master_CV.pdf', 'Résumé', true, true)}
