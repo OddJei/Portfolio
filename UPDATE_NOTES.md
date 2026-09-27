@@ -72,3 +72,13 @@ The private NDS Evidence Vault was used as the source for the portfolio evidence
 - NCPC links to the immutable public repository commit, identity API/model files, and workflow test.
 - Evidence copy now states the boundary explicitly: public source/test evidence is not deployment, client permission, production-data, live WhatsApp, or payment proof.
 - Private client screenshots, reviews, shop photos, company records, credentials, and vault files were not copied into this public repository.
+
+## Local route preview — 2026-09-27
+
+Plain `python -m http.server` does not know that `/work/*` is a client-side SPA route, so it returns a filesystem 404. Use the included fallback server instead:
+
+```powershell
+python serve.py 8002
+```
+
+Then open `http://127.0.0.1:8002/work/tradeflow` or any of the other published case-study routes.
