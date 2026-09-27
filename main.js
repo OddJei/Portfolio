@@ -34,16 +34,16 @@ const caseContent = {
     label: 'BUSINESS OPERATIONS',
     title: 'TradeFlow',
     desc: 'Business-management software shaped by actual small-business workflows, including businesses that do not want every sale captured through a conventional POS.',
-    status: 'Deployed · 3 businesses',
+    status: 'Deployed · public details limited',
     role: 'Product + engineering + onboarding',
     stack: 'JavaScript · Apps Script · Sheets · APIs',
     evidenceStatus: 'Evidence publishing in progress',
     evidenceItems: [
-      ['Technical evidence', 'PREPARING', 'Implementation notes, production fixes and engineering decisions are being curated for public viewing.'],
-      ['Architecture', 'PREPARING', 'The system boundaries, data flow and deployment model will be published here shortly.'],
+      ['Technical evidence', 'AVAILABLE', 'The public Standard TradeFlow copy includes the setup gate, API contracts and focused tests.', 'https://github.com/OddJei/TradeFlow-Standard-App/blob/3138b2af7b01359af0aaa5ce0ae856a8608597d7/appscript/tests/first-time-setup-preflight.test.mjs'],
+      ['Architecture', 'AVAILABLE', 'The public source shows the Apps Script, business-data and NCPC mapping boundaries.', 'https://github.com/OddJei/TradeFlow-Standard-App/blob/3138b2af7b01359af0aaa5ce0ae856a8608597d7/appscript/code.gs'],
       ['Client reviews', 'PENDING', 'Owner and staff reviews are being collected and will be added after review and permission.'],
       ['Real-world photos', 'PENDING', 'Permissioned shop and usage photos will be added as they are collected.'],
-      ['Source / GitHub', 'PUBLISHED', 'Public-safe Standard TradeFlow source and evidence copy.', 'https://github.com/OddJei/TradeFlow-Standard-App'],
+      ['Source / GitHub', 'PUBLISHED', 'Public-safe Standard TradeFlow source and evidence copy at an immutable commit.', 'https://github.com/OddJei/TradeFlow-Standard-App/commit/3138b2af7b01359af0aaa5ce0ae856a8608597d7'],
     ],
     sections: [
       ['01', 'CONTEXT', 'The first assumption was simple. Reality was not.', 'Real client use exposed a harder question: what happens when the business does not operate like a supermarket checkout?'],
@@ -62,10 +62,11 @@ const caseContent = {
     stack: 'Python 3.12 · FastAPI · PostgreSQL · Redis',
     evidenceStatus: 'Evidence publishing in progress',
     evidenceItems: [
-      ['Technical evidence', 'PREPARING', 'Runtime, workflow, test and integration evidence is being prepared for public viewing.'],
-      ['Architecture', 'PREPARING', 'The capability, session, persistence and adapter architecture will be published here shortly.'],
-      ['Integration progress', 'PREPARING', 'Gateway and end-to-end integration evidence will be added as implementation advances.'],
-      ['Source / GitHub', 'PUBLISHED', 'Public-safe Ntheemba source and evidence copy.', 'https://github.com/OddJei/NTheemba'],
+      ['Technical evidence', 'AVAILABLE', 'The public copy contains the FastAPI runtime, inbound worker and focused test suite.', 'https://github.com/OddJei/NTheemba/tree/91f1a1de968f217abd719176139cbd6dead98100/bot/tests'],
+      ['Architecture', 'AVAILABLE', 'The immutable source commit exposes the runtime entry point, worker and adapter boundaries.', 'https://github.com/OddJei/NTheemba/blob/91f1a1de968f217abd719176139cbd6dead98100/bot/ntheemba/main.py'],
+      ['Runtime / session evidence', 'AVAILABLE', 'The repository documents durable configuration, runtime coordination and capability workflows; this is local/source evidence, not live WhatsApp proof.', 'https://github.com/OddJei/NTheemba/blob/91f1a1de968f217abd719176139cbd6dead98100/bot/ntheemba/inbound_worker.py'],
+      ['Gateway / WAHA integration', 'UNDER DEVELOPMENT', 'Gateway materials remain integration work; live WhatsApp activation is not claimed.'],
+      ['Source / GitHub', 'PUBLISHED', 'Public-safe Ntheemba source and evidence copy at an immutable commit.', 'https://github.com/OddJei/NTheemba/commit/91f1a1de968f217abd719176139cbd6dead98100'],
     ],
     sections: [
       ['01', 'PROBLEM', 'A chatbot is easy. A trustworthy business agent is not.', 'The hard part is identifying the business, loading the right capability, handling duplicates and failures, and never inventing business facts.'],
@@ -86,10 +87,11 @@ const caseContent = {
     stack: 'JavaScript · catalogue JSON · API contracts',
     evidenceStatus: 'Evidence publishing in progress',
     evidenceItems: [
-      ['Technical evidence', 'PREPARING', 'Catalogue tooling, data-model and integration evidence is being prepared for public viewing.'],
-      ['Architecture', 'PREPARING', 'Canonical identity, authority boundaries and integration contracts will be published here shortly.'],
+      ['Technical evidence', 'AVAILABLE', 'The public copy contains the identity model, API contracts and workflow tests.', 'https://github.com/OddJei/NTheemba-Central-Product-Catalogue-NCPC-/blob/dae04f65295dccc7ec89a094a9ba7e249cde7fc2/service/src/ncpc_service/models.py'],
+      ['Architecture', 'AVAILABLE', 'The immutable source shows identity, variant, alias, barcode and review/publication boundaries.', 'https://github.com/OddJei/NTheemba-Central-Product-Catalogue-NCPC-/blob/dae04f65295dccc7ec89a094a9ba7e249cde7fc2/service/src/ncpc_service/api.py'],
+      ['Review / workflow tests', 'AVAILABLE', 'The workflow tests provide source-level evidence for controlled catalogue operations.', 'https://github.com/OddJei/NTheemba-Central-Product-Catalogue-NCPC-/blob/dae04f65295dccc7ec89a094a9ba7e249cde7fc2/service/tests/test_workflow.py'],
       ['Catalogue / admin UI', 'PREPARING', 'Public-safe screenshots and catalogue workflow evidence will be added shortly.'],
-      ['Source / GitHub', 'PUBLISHED', 'Public-safe NCPC source and evidence copy.', 'https://github.com/OddJei/NTheemba-Central-Product-Catalogue-NCPC-'],
+      ['Source / GitHub', 'PUBLISHED', 'Public-safe NCPC source and evidence copy at an immutable commit.', 'https://github.com/OddJei/NTheemba-Central-Product-Catalogue-NCPC-/commit/dae04f65295dccc7ec89a094a9ba7e249cde7fc2'],
     ],
     sections: [
       ['01', 'PROBLEM', 'Products have one identity. People describe them many ways.', 'A customer, cashier, barcode and supplier list may all refer to the same product differently. Re-discovering identity for every business is expensive and inconsistent.'],
@@ -151,8 +153,8 @@ function evidenceSection(data) {
       ${sectionLabel('E', 'EVIDENCE')}
       <div class="case-evidence-head">
         <div>
-          <h2>Proof is being published progressively.</h2>
-          <p>These controls are intentionally visible now so this case study can grow as reviews, photos and public-safe technical evidence are approved. Items that are not yet published do not open incomplete or private material.</p>
+        <h2>Evidence, with boundaries.</h2>
+          <p>Public source and test evidence are linked directly where available. Deployment, client, payment and live-channel proof remains private or pending approval rather than being implied by source code.</p>
         </div>
         <span class="evidence-state">${data.evidenceStatus}</span>
       </div>
@@ -164,7 +166,7 @@ function evidenceSection(data) {
               <span class="evidence-badge ${status === 'PRIVATE' ? 'private' : status === 'PENDING' ? 'pending' : ''}">${status}</span>
             </div>
             <p>${copy}</p>
-            ${href ? button(href, 'View source / GitHub', true, true) : placeholderButton('View evidence', `${data.title} — ${title}`)}
+            ${href ? button(href, status === 'PUBLISHED' ? 'View immutable source' : 'View public evidence', true, true) : placeholderButton('View evidence', `${data.title} — ${title}`)}
           </article>
         `).join('')}
       </div>
@@ -547,7 +549,8 @@ function notFoundPage(pathname) {
   `;
 }
 
-const path = window.location.pathname;
+// Normalize direct links such as /work/tradeflow/ before resolving the SPA route.
+const path = window.location.pathname.replace(/\/+$/, '') || '/';
 if (path.startsWith('/work/')) {
   const slug = path.split('/').filter(Boolean).pop();
   root.innerHTML = caseContent[slug] ? caseStudyPage(slug) : notFoundPage(path);

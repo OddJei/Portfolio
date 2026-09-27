@@ -56,3 +56,19 @@ Interactive browser automation through the bundled Playwright wrapper was unavai
 ### Evidence boundary
 
 The résumé, client reviews/photos, and deployment-specific proof remain clearly marked as unpublished or pending. No private client data, credentials, deployment identifiers, or production exports were added.
+
+## Route fallback follow-up — 2026-09-27
+
+- Made the Vercel SPA fallback explicit for `/work`, `/work/`, and nested case-study paths.
+- Normalized trailing slashes in the client-side route resolver so `/work/tradeflow` and `/work/tradeflow/` resolve to the same case study.
+- The live Vercel URL was intentionally not redeployed in this pass; it is still serving an older deployment. The repository now contains the route fix for the next approved deployment.
+
+## Vault-backed public evidence — 2026-09-27
+
+The private NDS Evidence Vault was used as the source for the portfolio evidence mapping. Only public-safe derivatives were added:
+
+- TradeFlow links to the immutable public repository commit, setup-preflight test, and implementation source.
+- Ntheemba links to the immutable public repository commit, runtime entry point, inbound worker, and public test directory.
+- NCPC links to the immutable public repository commit, identity API/model files, and workflow test.
+- Evidence copy now states the boundary explicitly: public source/test evidence is not deployment, client permission, production-data, live WhatsApp, or payment proof.
+- Private client screenshots, reviews, shop photos, company records, credentials, and vault files were not copied into this public repository.
